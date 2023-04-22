@@ -1,0 +1,48 @@
+ <!--To add new Restaurant this page will be opened in website-->
+<div class="col-md-6 offset-md-3">
+    <div class="content">
+    <h3 align="center"> Create Hotel </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label>Restaurant name</label>
+            <!--to create restaurant name  and here i used two way binding to send the value front to back and back to front-->
+            <input type="text" class ="form-control" id = " restaurantName" placeholder="restaurant"
+                [(ngModel)] = "hotel.restaurantName" name = "hotel.restaurantName" maxlength="15" required>
+        </div>
+    
+        <div class="form-group">
+            <label><b>Owner name</b></label>
+            <!--add owner name for the restaurant-->
+            <input type="text" class ="form-control" id = "ownerName" placeholder="owner"
+                [(ngModel)] = "hotel.ownerName" name = "hotel.ownerName" maxlength="15" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="foodType">Food type</label>
+            <!--add food tpe for the restaurant-->
+            <input type="text" class ="form-control" id = "foodType" placeholder="Food type"
+                [(ngModel)] = "hotel.foodType" name = "hotel.foodType" required>
+        </div>
+        <div class="form-group">
+            <label>Rating</label>
+            <!--add ratings for the restaurant-->
+            <input type="text" class ="form-control" id = "rating" placeholder="Rating"
+                [(ngModel)] = "hotel.rating" name = "hotel.rating" maxlength="3">
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <!--add location in url type for the restaurant-->
+            <input type="url" class ="form-control" id = "location" placeholder="Location"
+                [(ngModel)] = "hotel.location" name = "hotel.location">
+                
+        </div>
+    
+    
+        <!--if you click submit it goes to onsubmit() in create hotel details ts page-->
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+     
+     </div>
+    </div> 
