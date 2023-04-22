@@ -1,0 +1,66 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--restaurant list page-->
+<div class="list row">
+    <div class= "col-md-8">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" title="Give restaurantName" style="width:50%;" placeholder="Search by Restaurant Name"
+            [(ngModel)]="restaurantName"/>
+        <div class="input-group-append">
+            <!--serach the restaurant using restaurant name-->
+            <button  type="submit" style="width:30%;border-radius:20%;margin-left:10px;background-color:skyblue;text-align: center; height:35px;" 
+            (click)="searchByName()">Search 🧐</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!--Filter the veg hotel list-->
+<button class="btn btn-outline-primary" type="button"  style="margin-left:65%;margin-right:2%" (click)="fetchVegHotel()">
+    Veg Hotel List
+  </button>
+  <!--Filter non veg hotel list-->
+  <button class="btn btn-outline-secondary" type="button"(click)="fetchNonVegHotel()">
+    NonVeg Hotel List
+  </button>
+<div class="container">
+<h2 align="center" title="List of Resataurant"> Restaurant List</h2>
+<!--button type="submit" class="veg-indian-vegetarian">⊡</buton>-->
+<table class = "table">
+    <thead>
+        <tr>
+            <th> Restaurant Name</th>
+            <th> Owner Name </th>
+            <th> foodType </th>
+            <th> Rating</th>
+            <th> Location </th>
+            <th style="text-align: center;"> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let hotels of hotel" >
+            <td title="RestaurantName"><i class="material-icons" style="font-size:36px;margin-left:10%; color:blue">store</i><br/><b>{{hotels.restaurantName}}</b></td>
+            <td title="Owner"><i class="material-icons" style="margin-left:5%;">person</i><br/><b>{{hotels.ownerName}}</b></td>
+            <td title="food type"><i class="material-icons"style="color:blue">restaurant</i><b>{{hotels.foodType}}</b></td>
+            <td title="rating"><b>{{hotels.rating}}⭐</b></td>
+            <td title="location"><i class="fa fa-map-marker" style="font-size:30px;color:red"></i><a href="{{hotels.location}}">see the location</a></td>
+            <td>
+                <ul>
+                <li align="center">
+                    <!--before update details confirm status is execute-->
+                    <button (click) = "confirmUpdate(hotels)" class = "btn btn-info">Update</button>
+                    <!--to view the restaurant details using hotelId-->
+                    <button (click) = "hotelDetails(hotels.hotelId)" class = "btn btn-info" style="margin-left: 10px"><i class="fa fa-eye" style="font-size:24px"></i></button>
+                <li align="center">
+                    <!--before delete the details confirmaton status execute-->
+                    <button (click) = "confirmDelete(hotels)" class = "btn btn-danger" onclick="deleteConfirmation()"><i class="material-icons">delete</i></button>
+                </li>
+                </ul>
+            </td>
+        </tr>
+        <tr scope="row" *ngIf="hotel.length === 0">
+           <td colspan="5" class="text-center">No records found ❌</td>
+        </tr>
+    </tbody>
+</table>
+<button type="submit"  *ngIf="hotel.length !== 0"Style="margin-left:45%; background-color: rgb(241, 115, 115); color: black; border-radius: 20%;" (click)="confirmRemoveAll()">Remove all</button>
+</div>

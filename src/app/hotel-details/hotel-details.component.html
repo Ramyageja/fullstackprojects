@@ -1,0 +1,24 @@
+<!--to view particular hotel details from list-->
+<div class="container" align="center">
+<h3 title="particular restaurant details"> View Restaurant Details</h3>
+<hr/>
+<form>
+    <div>
+        <label>  Restaurant Name: </label> {{hotel.restaurantName}}
+    </div>
+    <div>
+        <label>  Owner Name: </label> {{hotel.ownerName}}
+    </div>
+    <div>
+        <label>  Food type: </label> {{hotel.foodType}}
+    </div>
+    <div>
+        <label>  Rating: </label> {{hotel.rating}}
+    </div>
+    <div>
+        <label>  Location: </label> {{hotel.location}}
+    </div>
+</form>
+<!--After click back it goes to list page-->
+<button type="submit" (click)="back()" style="background-color:rgb(24, 142, 238)">Back</button>
+</div>
