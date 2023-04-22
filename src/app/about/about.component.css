@@ -1,0 +1,16 @@
+img{
+    height: 20%;
+    margin-left: 20%;
+    margin-bottom:10%;
+}
+.container p{
+    color: rgb(39, 23, 2);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+.container{
+    background-color:white;
+    opacity:0.6;
+    border-radius: 3%;
+}
