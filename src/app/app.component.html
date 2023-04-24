@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<div class="navigation">
+  <!--parent component for all the components and navigation bar is created in this page
+  loginService.isUserLoggedIn() if you log in only it will be visible 
+!loginService.isUserLoggedIn() it will visible before login-->
+<nav class="navbar navbar-expand-sm navbar-dark">
+  <div class="dropdown">
+    <button *ngIf="loginService.isUserLoggedIn()" class="dropbtn">About
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a *ngIf="loginService.isUserLoggedIn()" routerLink="/about" routerLinkActive="active" class="nav-link" ><i class="fa fa-address-book-o"></i>About Us</a>
+      <a *ngIf="loginService.isUserLoggedIn()" routerLink="/profile" class="nav-link" ><i class="glyphicon glyphicon-user"></i>Profile</a>
+      <a *ngIf="loginService.isUserLoggedIn()" routerLink="/contact" class="nav-link" ><i class="fa fa-commenting"></i>Contact us</a>
+
+    </div>
+  </div> 
+  <ul class = "nav nav-pills">
+    <li class = "nav-item">
+      <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/home" class="nav-link"><i class="fa fa-home fa-3px"></i>Home</a>
+    </li>
+    <li class = "nav-item">
+      <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/" class="nav-link" >Login<i class="fa fa-sign-in fa-1px"></i></a>
+    </li>
+      <li class = "nav-item">
+          <a *ngIf="loginService.isUserLoggedIn()" routerLink="/hotel" routerLinkActive="active" class="nav-link" ><i class="fa fa-building"></i>Hotel List</a>
+      </li>
+      <li class = "nav-item">
+          <a *ngIf="loginService.isUserLoggedIn()" routerLink="/create-hotel-details" routerLinkActive="active" class="nav-link"><i class="fa fa-building"></i>+ Hotel</a>
+      </li>
+      <!--<li class = "nav-item">
+        <a *ngIf="loginService.isUserLoggedIn()" routerLink="/registration" routerLinkActive="active" class="nav-link" >Registration</a>
+    </li>-->
+  </ul>
+  
+  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+    <ul class="nav nav-pills">
+    <li class = "nav-item">
+      <a  *ngIf="loginService.isUserLoggedIn()" (click)="confirmLogout()" routerLinkActivate="active" class="nav-link"
+      style="font-size:15px; color: blue;">Logout<i class="fa fa-sign-out fa-1px"></i></a> 
+    </li>  <br/>
+  </ul>
+  </div>
+  
+</nav>
+
+
+
+
+<h1 class="text-center"> {{title}} </h1>
+<div class = "container">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,80 @@
+<section class="vh-100">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+  <div class="container-fluid">
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="row">
+      <div class="col-sm-6 text-black">
+<!--if the username and password is correct it will login and username is stored in session storage-->
+        <div class="px-5 ms-xl-4">
+          <img src="..\assets\download.png" style="height: 100px;" />
+          <span class="h1 fw-bold mb-0"></span>
+        </div>
+
+        <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+          <form style="width: 23rem;">
+
+            <h3 class="fw-normal mb-3 pb-3" align="center" style="letter-spacing: 1px;">Log in</h3>
+
+            <hr>
+            <!--<div class="form-outline mb-4">-->
+            <label class="form-label">User Name
+              <div class="input-group mb-2">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  <input type="text" name="username" class="form-control form-control-lg" title="userName" placeholder="username"
+                    [(ngModel)]="username" />
+                    
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="invalidLogin">Username is required</div>
+              </div>
+
+            </label>
+            <!--</div>-->
+
+            <!--<div class="form-outline mb-4">-->
+            <label class="form-label">Password
+              <div class="input-group mb-2">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  <input type="password" name="password"class="form-control form-control-lg" maxlength="7" placeholder="password"
+                    [(ngModel)]="password" />
+                   
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="invalidLogin">Password is mandatory with 7 character</div>
+              </div>
+            </label>
+            <p style="color:red">{{message}}</p>
+
+            <div class="pt-1 mb-4">
+              <button (click)=checkLogin() class="btn btn-success">
+                Login
+              </button>
+            </div>
+             <!--if you forgot password you reset the password-->
+            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="/reset">Forgot password?</a></p>
+            <p>Don't have an account? <a href="/registration" class="link-info">Register here</a></p>
+
+          </form>
+
+        </div>
+
+
+      </div>
+
+      <div class="col-sm-6 px-0 d-none d-sm-block">
+        <img src="..\assets\cute-woman-chef-holding-cloche-food-tray-hand-drawn-logo-cartoon-art-illustration_56104-1110.jpg" alt="Login image" class="w-100 vh-100"
+          style="object-fit: cover; object-position: left;">
+      </div>
+    </div>
+  </div>
+</section>

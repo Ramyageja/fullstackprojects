@@ -1,0 +1,12 @@
+<!--contact page for queries-->
+<div class="wrapper">
+    <form class="form">
+      <div class="pageTitle title" align="center">CONTACT US</div>
+      <div class="secondaryTitle title" align="center">Please fill this form.</div>
+      <input type="text" class="name formEntry" placeholder="Name" name="Name" [(ngModel)]="Name" maxlength="15" required/>
+      <input type="email" class="email formEntry" placeholder="Email" name="email" [(ngModel)]="email" maxlength="30" required/>
+      <textarea class="message formEntry" placeholder="Message" name="message" [(ngModel)]="message"></textarea>
+      
+      <button class="submit formEntry" (click)="contact()">Submit</button>
+    </form>
+  </div>
