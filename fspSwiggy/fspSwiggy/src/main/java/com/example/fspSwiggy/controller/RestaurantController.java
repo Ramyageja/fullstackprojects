@@ -112,7 +112,7 @@ public class RestaurantController {
 		try {
 			List<SwiggyDetails> hotelList=new ArrayList<SwiggyDetails>();
 			if(restaurantName!=null) {
-				restaurantRepo.findByRestaurantName(restaurantName).forEach(hotelList::add);
+				restaurantRepo.findByRestaurantNameContaining(restaurantName).forEach(hotelList::add);
 				return new ResponseEntity<>(hotelList,HttpStatus.OK);
 			}
 			else {
