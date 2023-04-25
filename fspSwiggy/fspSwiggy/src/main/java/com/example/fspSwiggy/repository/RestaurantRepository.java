@@ -14,7 +14,7 @@ import com.example.fspSwiggy.model.SwiggyDetails;
 
 @Repository
 public interface RestaurantRepository extends JpaRepository<SwiggyDetails,Integer> {
-	List<SwiggyDetails> findByRestaurantName(String restaurantName);
+	List<SwiggyDetails> findByRestaurantNameContainig(String restaurantName);
 	List<SwiggyDetails> findByfoodType(String foodType);
 
 }
